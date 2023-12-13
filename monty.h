@@ -34,4 +34,14 @@ typedef struct instruction_s
 } instruction_t;
 
 int top;
+
+
+void add(stack_t stk, int l);
+
+void swap(stack_t stk, int l);
+
+void nop(void);
+
+void execute_op(const char *op, int ln);
+
 #endif

@@ -44,6 +44,18 @@ void print_all(const stack_t *h)
 	}
 }
 /**
+ * exit_f - Exit for unknown opcode
+ * @oc: Opcode
+ * @l: line
+ * Return: int
+ */
+int exit_f(const char *oc, l)
+{
+	fprintf(stderr,
+		"L%d: Unknown opcode: %s\n", l, oc);
+	return (EXIT_FAILURE);
+}
+/**
  * main - implement opcodes
  *
  * Return: 0 on success
@@ -74,12 +86,17 @@ int main(void)
 		}
 		else if (strcmp(opcode, "pall") == 0)
 			print_all();
+
+		/*
+		 * 3, 4, 5 Tasks
+		 * calling execute_opcode inside 3_4_5_tasks.c file
+		 */
+		else if (strcmp(opcode, "swap") == 0 ||
+			strcmp(opcode, "add") == 0 ||
+			strcmp(opcode, "nop") == 0)
+			execute_opcode(opcode, ln);
 		else
-		{
-			fprintf(stderr,
-				"L%d: Unknown opcode: %s\n", ln, opcode);
-			return (EXIT_FAILURE);
-		}
+			exit_f(opcode, ln);
 	}
 	fclose(file);
 	return (0);
