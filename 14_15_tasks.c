@@ -1,9 +1,13 @@
-#include "main.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "monty.h"
 
 /* stack_t *head = NULL; */
 
 /**
  * queue - Do nothing
+ * @h: Stack
  * Return: void
  */
 
@@ -13,7 +17,7 @@ void queue(stack_t **h)
 
 	if (*h == NULL || (*h)->next == NULL)
 	{
-		return ();
+		return;
 	}
 	tmp = *h;
 
@@ -39,22 +43,22 @@ void queue(stack_t **h)
  * @l: Line
  * Return: void
  */
-void rotr(stack_t **stk, int l)
+void rotr(stack_t **stk)
 {
-	(void)l;
 	stack_t *tmp, *curr;
 
 	if (*stk != NULL && (*stk)->next != NULL)
 	{
+		return;
 	}
 
 	curr = *stk;
 
-	while(curr->next != NULL)
+	while (curr->next != NULL)
 	{
 		curr = curr->next;
 	}
-	
+
 	tmp = curr->prev;
 	tmp->next = NULL;
 	curr->prev = NULL;
@@ -62,5 +66,4 @@ void rotr(stack_t **stk, int l)
 	(*stk)->prev = curr;
 
 	*stk = curr;
-	
 }
