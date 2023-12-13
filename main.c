@@ -94,7 +94,7 @@ int main(void)
 		else if (strcmp(opcode, "swap") == 0 ||
 			strcmp(opcode, "add") == 0 ||
 			strcmp(opcode, "nop") == 0)
-			execute_opcode(opcode, ln);
+			execute_opcode(stack, opcode, ln);
 		else
 			exit_f(opcode, ln);
 	}

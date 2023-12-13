@@ -36,12 +36,16 @@ typedef struct instruction_s
 int top;
 
 
-void add(stack_t stk, int l);
+void add(stack_t **stk, int l);
 
-void swap(stack_t stk, int l);
+void swap(stack_t **stk, int l);
 
 void nop(void);
 
-void execute_op(const char *op, int ln);
+void rotl(stack_t **stk);
+void rotr(stack_t **stk);
+void queue(stack_t **h);
+
+void execute_op(stack_t **stack, const char *op, int ln);
 
 #endif
